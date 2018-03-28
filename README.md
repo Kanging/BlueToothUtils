@@ -50,12 +50,12 @@ btu.queryingPairedDevices();
 >Get the scanned device
 ```
   //获取扫描到的设备
-        btu.discoveringDevices(12000, new BlueToothUtils.discoveringDevicesListener() {
-            @Override
-            public void getDiscouveredDevice(BluetoothDevice bluetoothDevice) {
-                Log.i("BTU","DiscoveringDevices:"+bluetoothDevice.getName()+":"+bluetoothDevice.getAddress());
-            }
-        });
+    btu.discoveringDevices(12000, new BlueToothUtils.discoveringDevicesListener() {
+     @Override
+     public void getDiscouveredDevice(BluetoothDevice bluetoothDevice) {
+       Log.i("BTU","DiscoveringDevices:"+bluetoothDevice.getName()+":"+bluetoothDevice.getAddress());
+       }
+     });
 ```
 
 >Make current blue can be scanned by other devices
@@ -115,6 +115,10 @@ mBtu.blueIsConnected()//返回boolean
 mBtu.bleBytesWrite(byte[] data)
 ```
 
+>read data
+```
+mBtu.bleBytesRead()
+```
 >Turn off Bluetooth
 ```
 mBtu.closeBlueTooth()
