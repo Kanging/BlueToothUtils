@@ -312,8 +312,8 @@ public class BlueToothUtils {
     /**
      * ble读数据
      */
-    public void bleBytesRead(BluetoothGattCharacteristic characteristic) {
-        mBluetoothGatt.readCharacteristic(characteristic);
+    public void bleBytesRead() {
+        mBluetoothGatt.readCharacteristic(tempBluetoothGattCharacteristic);
     }
 
     /**
