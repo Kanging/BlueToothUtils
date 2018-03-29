@@ -4,8 +4,7 @@
 
 ## dependency
 
->This tool has only one file [BlueToothUtils.java](https://github.com/fanrunqi/BlueToothUtils/tree/master/app/src/main/java/cn/bobojing/bluetoothutils/btUtils),copy it!
-
+>just copy the package [btUtils](https://github.com/fanrunqi/BlueToothUtils/tree/master/app/src/main/java/cn/bobojing/bluetoothutils/btUtils) in your project.
 ## manifests
 
 >Add the following permissions
@@ -50,12 +49,12 @@ btu.queryingPairedDevices();
 >Get the scanned device
 ```
   //获取扫描到的设备
-        btu.discoveringDevices(12000, new BlueToothUtils.discoveringDevicesListener() {
-            @Override
-            public void getDiscouveredDevice(BluetoothDevice bluetoothDevice) {
-                Log.i("BTU","DiscoveringDevices:"+bluetoothDevice.getName()+":"+bluetoothDevice.getAddress());
-            }
-        });
+    btu.discoveringDevices(12000, new BlueToothUtils.discoveringDevicesListener() {
+     @Override
+     public void getDiscouveredDevice(BluetoothDevice bluetoothDevice) {
+       Log.i("BTU","DiscoveringDevices:"+bluetoothDevice.getName()+":"+bluetoothDevice.getAddress());
+       }
+     });
 ```
 
 >Make current blue can be scanned by other devices
@@ -115,6 +114,10 @@ mBtu.blueIsConnected()//返回boolean
 mBtu.bleBytesWrite(byte[] data)
 ```
 
+>read data
+```
+mBtu.bleBytesRead()
+```
 >Turn off Bluetooth
 ```
 mBtu.closeBlueTooth()
