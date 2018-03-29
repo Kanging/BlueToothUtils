@@ -4,8 +4,7 @@
 
 ## dependency
 
->This tool has only one file [BlueToothUtils.java](https://github.com/fanrunqi/BlueToothUtils/tree/master/app/src/main/java/cn/bobojing/bluetoothutils/btUtils),copy it!
-
+>just copy the package [btUtils](https://github.com/fanrunqi/BlueToothUtils/tree/master/app/src/main/java/cn/bobojing/bluetoothutils/btUtils) in your project.
 ## manifests
 
 >Add the following permissions
