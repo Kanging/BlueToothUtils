@@ -273,17 +273,18 @@ public class BlueToothUtils {
         byte[] data = string2bytes(info,encode);
         byte[] temp = new byte[20];
         for (int i = 0; i < data.length; i++) {
-            if ((i + 1) % 20 == 0) {
-                writeDataList.add(temp);
-            }
             temp[i % 20] = data[i];
+            if ((i + 1) % 20 == 0) {
+                byte[] temp2 = new byte[20];
+                System.arraycopy(temp,0,temp2,0,20);
+                writeDataList.add(temp2);
+            }
         }
         int remainder = data.length % 20;
         if (remainder> 0) {
             byte[] lastArray = new byte[remainder];
-            for(int j=0;j<remainder;j++){
-                lastArray[j]=temp[j];
-            }
+            System.arraycopy(temp,0,lastArray,0,remainder);
+
             writeDataList.add(lastArray);
         }
         //循环写数据
