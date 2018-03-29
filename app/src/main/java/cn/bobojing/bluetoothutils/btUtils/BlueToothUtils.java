@@ -59,7 +59,8 @@ public class BlueToothUtils {
             return;
         }
         this.ebtListener = listener;
-        if (!(mEBTReceiverRegisterFlag = mBluetoothAdapter.isEnabled())) {
+        if (!mBluetoothAdapter.isEnabled()) {
+            mEBTReceiverRegisterFlag =true;
             //打开蓝牙
             Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
             ctx.startActivity(enableBtIntent);
@@ -142,7 +143,9 @@ public class BlueToothUtils {
     /**---------------------------------------------------------------------------------------------
      * 使蓝牙变为可发现状态
      */
+    Boolean mEDReceiverRegisterFlag;
     public void enablingDiscoverability(int duration){
+        mEDReceiverRegisterFlag =true;
         Intent discoverableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
         discoverableIntent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION,duration);
         ctx.startActivity(discoverableIntent);
@@ -360,11 +363,14 @@ public class BlueToothUtils {
         if(mBluetoothAdapter!=null){
             mBluetoothAdapter.disable();
         }
-        if(!mEBTReceiverRegisterFlag){
+        if(mEBTReceiverRegisterFlag){
             ctx.unregisterReceiver(mEBTReceiver);
         }
+        if(mEDReceiverRegisterFlag){
+            ctx.unregisterReceiver(mEDReceiver);
+        }
         ctx.unregisterReceiver(mDDReceiver);
-        ctx.unregisterReceiver(mEDReceiver);
+
     }
 }
 
